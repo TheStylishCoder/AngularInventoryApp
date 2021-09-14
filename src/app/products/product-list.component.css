@@ -1,0 +1,5 @@
+/* any styles defined here won't affect any other component in application */
+
+thead {
+    color: #337AB7;
+}
