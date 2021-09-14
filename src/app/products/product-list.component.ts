@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { IProduct } from "./product";
 
 //since we defined the HTML file in the same folder as the component we can use the ./ relative path syntax here
@@ -8,7 +8,7 @@ import { IProduct } from "./product";
     styleUrls: ['./product-list.component.css']
 })
 
-export class ProductListComponent {
+export class ProductListComponent implements OnInit{
     pageTitle: string = 'Product List';
     imageWidth: number = 50;
     imageMargin: number = 2;
@@ -41,5 +41,9 @@ export class ProductListComponent {
 
     toggleImage(): void { //void as it won't have return type
         this.showImage = !this.showImage; //not operator
+    }
+//we must write code for every method in the interface
+    ngOnInit() : void{
+        console.log('In OnInit');
     }
 }
