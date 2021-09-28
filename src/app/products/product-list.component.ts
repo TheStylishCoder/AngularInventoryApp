@@ -1,6 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { IProduct } from "./product";
-import { ProductService } from "./products.service";
+import { ProductService } from "./product.service";
 
 //since we defined the HTML file in the same folder as the component we can use the ./ relative path syntax here
 @Component({
@@ -66,7 +66,9 @@ export class ProductListComponent implements OnInit{
     }
 //we must write code for every method in the interface
     ngOnInit() : void{
-        this.listFilter = 'cart';
+        this.products = this.productService.getProducts();
+        this.filteredProducts = this.products;
+        //this.listFilter = 'cart';
     }
 
     onRatingClicked(message:string): void {
